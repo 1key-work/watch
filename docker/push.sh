@@ -6,6 +6,6 @@ cd $DIR
 
 NAME=$(basename $DIR)
 
-DOCKER_NAME=$DOCKER_HOST/$DOCKER_REPO/$NAME:`date +"%Y-%m-%d"`
+DOCKER_NAME=$DOCKER_PUSH/$DOCKER_REPO/$NAME:`date +"%Y-%m-%d"`
 docker tag $NAME $DOCKER_NAME
 docker push $DOCKER_NAME
