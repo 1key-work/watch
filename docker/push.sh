@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 set -e
-DIR=$(cd "$(dirname "$0")"; pwd)
+DIR=$(cd "$(dirname "$0")/.."; pwd)
 cd $DIR
 
-./build.sh
+./docker/build.sh
 
 NAME=$(basename $DIR)
 
