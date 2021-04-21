@@ -20,7 +20,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: push
         run: |
-          systemctl start docker && ./docker/push.sh
+          sudo systemctl start docker && ./docker/push.sh
         env:
           DOCKER_HOST: ${{ secrets.DOCKER_HOST }}
           DOCKER_USER: ${{ secrets.DOCKER_USER }}
