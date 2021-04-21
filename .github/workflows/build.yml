@@ -21,5 +21,5 @@ jobs:
       - name: Build and push Docker images
         uses: docker/build-push-action@v2.4.0
         with:
-          tags: ${{ secrets.DOCKER_HOST }}/${{ secrets.DOCKER_REPO }}/${{ secrets.DOCKER_USER }}:lastest
+          tags: ${{ secrets.DOCKER_REPO }}/${{ secrets.DOCKER_USER }}:latest
           push: true
