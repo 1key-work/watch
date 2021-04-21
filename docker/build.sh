@@ -9,4 +9,4 @@ DATE=$(date +"%Y-%m-%d")
 
 yarn
 
-docker build -t $DOCKER_HOST/$DOCKER_REPO/$NAME:latest .
+docker build -t $NAME .
