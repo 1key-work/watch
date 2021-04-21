@@ -1,6 +1,5 @@
 #!/usr/bin/env coffee
 
-import PORT from './config/port.txt'
 import Koa from 'koa'
 import koaBody from 'koa-body'
 import { fileURLToPath } from "url"
@@ -26,11 +25,12 @@ wrap = (func)=>
     next()
 
 export default main = (port)=>
-  console.log "http://127.0.0.1:#{PORT}"
+  console.log "http://127.0.0.1:#{port}"
   mod = await import('./plugin/aliwx')
   KOA.use wrap(mod.default)
-  KOA.listen(PORT, "0.0.0.0")
+  KOA.listen(port, "0.0.0.0")
 
+import PORT from './config/port.txt'
 
 if process.argv[1] == __filename
-  main()
+  main(process.env.PORT or PORT)
