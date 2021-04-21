@@ -14,8 +14,8 @@ jobs:
           fetch-depth: 1
       
       - name: push
-        run: |
-          ./docker/push.sh
+        run: | 
+          systemctl start docker && ./docker/push.sh
         env:
           DOCKER_USER: ${{ secrets.DOCKER_USER }}
           DOCKER_HOST: ${{ secrets.DOCKER_HOST }}
