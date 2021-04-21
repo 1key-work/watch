@@ -6,6 +6,8 @@ cd $DIR
 
 ./build.sh
 
+NAME=$(basename $DIR)
+
 docker push $NAME
 
 for t in latest $DATE; do
