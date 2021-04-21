@@ -6,7 +6,7 @@ COPY src/ /src
 COPY package.json \
   .direnv/bin/mnode \
   .direnv/bin/node.mjs \
-  .direnv/bin/loader.mjs 
+  .direnv/bin/loader.mjs /
 
 RUN \
 yarn config set registry https://registry.npm.taobao.org/ &&\
