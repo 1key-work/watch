@@ -19,5 +19,8 @@ jobs:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - run: |
-          yarn && docker/build.sh
+          yarn && docker/build.sh && docker/push.sh
+        env:
+          DOCKER_HOST: ${{ secrets.DOCKER_HOST }}
+          DOCKER_REPO: ${{ secrets.DOCKER_REPO }}
 
