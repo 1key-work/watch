@@ -1,0 +1,23 @@
+name: build
+on: [push]
+
+jobs:
+  build:
+    name: build
+    strategy:
+      matrix:
+        platform: [ubuntu-latest]
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      
+      - name: push
+        run: |
+          ./docker/push.sh
+        env:
+          DOCKER_USER: ${{ secrets.DOCKER_USER }}
+          DOCKER_HOST: ${{ secrets.DOCKER_HOST }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
