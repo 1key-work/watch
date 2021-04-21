@@ -14,4 +14,3 @@ sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories &&\
 yarn install --ignore-scripts && /docker-alpine-cleanup.sh
 
 ENTRYPOINT ["/mnode","/site/koa.js"]
-
