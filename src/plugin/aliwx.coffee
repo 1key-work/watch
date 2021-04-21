@@ -16,7 +16,13 @@ wxbot = Wxbot(TOKEN)
 export default ->
   {body} = @request
   console.log body
-  {alertName, expression, instanceName} = body
+
+  {
+    alertName
+    expression
+    instanceName
+    lastTime
+  } = body
 
   d = {}
   for i from instanceName.split '，'
@@ -26,5 +32,7 @@ export default ->
   await wxbot("""[#{d.address}](#{d.address})
 
 #{alertName} #{expression}
+
+持续#{lastTime}
 """)
   return
