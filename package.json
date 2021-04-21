@@ -10,5 +10,8 @@
   "type": "module",
   "scripts": {
     "prepare": "rm -rf lib && rsync -av --include='*/' --include='*.js' --include='*.txt' --include='*.mjs' --exclude=* src/ lib/ && npx coffee -m --compile --output lib src/"
+  },
+  "devDependencies": {
+    "coffeescript": "^2.5.1"
   }
 }

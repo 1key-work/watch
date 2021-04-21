@@ -1,7 +1,15 @@
 #!/usr/bin/env coffee
 
-import TOKEN from '~/config/token.txt'
+import _TOKEN from '~/config/token.txt'
 import Wxbot from '~/lib/wxbot'
+
+TOKEN = do =>
+  r = []
+  for i from _TOKEN.split("\n")
+    i = i.trim()
+    if i
+      r.push i
+  r
 
 wxbot = Wxbot(TOKEN)
 
