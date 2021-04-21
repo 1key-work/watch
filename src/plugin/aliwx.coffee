@@ -36,7 +36,9 @@ export default ->
     msg = """ 恢复正常 (故障持续了#{lastTime})"""
   else
     msg = """
-#{alertName} #{expression} → #{alertState}
+#{alertName} #{alertState}
+
+#{expression}
 """  
 
   await wxbot("""[#{d.address}](#{d.address})#{msg}""")
