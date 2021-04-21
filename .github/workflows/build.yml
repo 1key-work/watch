@@ -18,9 +18,6 @@ jobs:
           registry: ${{ secrets.DOCKER_HOST }}
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-      - run: yarn
-      - name: Build and push Docker images
-        uses: docker/build-push-action@v2.4.0
-        with:
-          tags: ${{ secrets.DOCKER_HOST }}/${{ secrets.DOCKER_REPO }}/${{ github.event.repository.name }}:2021-04-22
-          push: true
+      - run: |
+          yarn && docker/build.sh
+
