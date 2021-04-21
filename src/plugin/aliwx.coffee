@@ -33,9 +33,12 @@ export default ->
     d[i[...pos]] = i[pos+1..]
 
   if alertState == "OK"
-    msg = """ 恢复正常 (故障持续了#{lastTime})"""
+    msg = """ 恢复正常
+
+故障持续了#{lastTime}"""
   else
     msg = """
+
 #{alertName} #{alertState}
 
 #{expression}
