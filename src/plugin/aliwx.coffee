@@ -7,7 +7,7 @@ TOKEN = do =>
   r = []
   for i from _TOKEN.split("\n")
     i = i.trim()
-    if i
+    if i and not i.startsWith("#")
       r.push i
   r
 
@@ -19,20 +19,25 @@ export default ->
 
   {
     alertName
+    alertState
     expression
     instanceName
     lastTime
   } = body
-
+  if not instanceName
+    return
+  
   d = {}
   for i from instanceName.split '，'
     pos = i.indexOf('=')
     d[i[...pos]] = i[pos+1..]
 
-  await wxbot("""[#{d.address}](#{d.address})
+  if alertState == "OK"
+    msg = """ 恢复正常 (故障持续了#{lastTime})"""
+  else
+    msg = """
+#{alertName} #{expression} → #{alertState}
+"""  
 
-#{alertName} #{expression}
-
-持续#{lastTime}
-""")
+  await wxbot("""[#{d.address}](#{d.address})#{msg}""")
   return

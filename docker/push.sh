@@ -6,6 +6,11 @@ cd $DIR
 
 NAME=$(basename $DIR)
 
-DOCKER_NAME=$DOCKER_PUSH/$DOCKER_REPO/$NAME:`date +"%Y-%m-%d"`
+push(){
+DOCKER_NAME=$DOCKER_PUSH/$DOCKER_REPO/$NAME:$1
 docker tag $NAME $DOCKER_NAME
 docker push $DOCKER_NAME
+}
+
+push `date +"%Y-%m-%d"`
+push latest
