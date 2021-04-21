@@ -20,6 +20,6 @@ jobs:
           registry: ${{ secrets.DOCKER_HOST }}
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-    - name: push
+      - name: push
         run: | 
           ./docker/push.sh
