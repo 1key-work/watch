@@ -1,0 +1,14 @@
+{
+  "name": "watch",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "@rmw/axios": "^0.0.13",
+    "koa": "^2.13.1",
+    "koa-body": "^4.2.0"
+  },
+  "type": "module",
+  "scripts": {
+    "prepare": "rm -rf lib && rsync -av --include='*/' --include='*.js' --include='*.txt' --include='*.mjs' --exclude=* src/ lib/ && npx coffee -m --compile --output lib src/"
+  }
+}
