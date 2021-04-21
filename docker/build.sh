@@ -7,4 +7,6 @@ cd $DIR
 NAME=$(basename $DIR)
 DATE=$(date +"%Y-%m-%d")
 
+yarn
+
 docker build -t $NAME -t $NAME:latest -t $NAME:$DATE .
