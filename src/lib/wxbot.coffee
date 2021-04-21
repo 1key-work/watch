@@ -14,11 +14,13 @@ export default (token, msgtype="markdown")=>
     post[msgtype] = {
       content
     }
+    todo = []
     for url from li
-      {data} = await axios.post(
+      todo.push axios.post(
         url
         post
       )
+    for data from await Promise.all(todo)
       {errcode} = data
       if errcode
         throw new Error(errcode+" : "+data.errmsg)
