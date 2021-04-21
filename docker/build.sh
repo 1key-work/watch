@@ -5,5 +5,6 @@ DIR=$(cd "$(dirname "$0")/.."; pwd)
 cd $DIR
 
 NAME=$(basename $DIR)
+DATE=$(date +"%Y-%m-%d")
 
-docker build -t $NAME .
+docker build -t $NAME -t $NAME:latest -t $NAME:$DATE .
