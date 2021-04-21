@@ -2,7 +2,7 @@ FROM node:15-alpine3.10
 
 WORKDIR /
 COPY docker/docker-alpine-cleanup.sh .
-COPY lib .
+COPY lib/ /lib
 COPY package.json .direnv/bin/mnode .direnv/bin/node.mjs .direnv/bin/loader.mjs /
 
 RUN \
