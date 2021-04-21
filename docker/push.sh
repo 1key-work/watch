@@ -8,9 +8,4 @@ cd $DIR
 
 NAME=$(basename $DIR)
 
-docker push $NAME
-
-for t in latest $DATE; do
-  docker push "$NAME:$t"
-done
-
+docker push $DOCKER_HOST/$DOCKER_REPO/$NAME:latest

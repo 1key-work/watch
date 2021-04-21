@@ -23,3 +23,7 @@ jobs:
       - name: push
         run: | 
           ./docker/push.sh
+        env:
+          DOCKER_HOST: ${{ secrets.DOCKER_HOST }}
+          DOCKER_USER: ${{ secrets.DOCKER_USER }}
+          DOCKER_REPO: ${{ secrets.DOCKER_REPO }}
