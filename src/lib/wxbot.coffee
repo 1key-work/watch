@@ -20,7 +20,7 @@ export default (token, msgtype="markdown")=>
         url
         post
       )
-    for data from await Promise.all(todo)
+    for data from await Promise.allSettled(todo)
       {errcode} = data
       if errcode
         throw new Error(errcode+" : "+data.errmsg)
